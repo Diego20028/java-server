@@ -10,5 +10,4 @@ ENV VERSION=1.20.4
 # Ajustar uso de memoria
 ENV MEMORY=512M
 
-EXPOSE 25
-565
+EXPOSE 25565
