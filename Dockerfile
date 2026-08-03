@@ -1,14 +1,11 @@
 FROM itzg/minecraft-server:latest
 
-# Aceptar EULA
 ENV EULA=TRUE
 
-# Tipo de servidor y versión (PaperMC optimizado para pocos recursos)
-ENV TYPE=PAPER
-ENV VERSION=1.20.4
-
-# Ajustar uso de memoria para el plan gratuito de Render (512M)
-ENV MEMORY=512M
+# Tipo Purpur optimizado y versión 1.21.1
+ENV TYPE=PURPUR
+ENV VERSION=1.21.1
+ENV MEMORY=384M
 
 # Instalar playit-cli
 USER root
@@ -19,7 +16,7 @@ RUN curl -SsL https://playit-cloud.github.io/ppa/key.gpg | gpg --dearmor | tee /
     && apt-get install -y playit \
     && rm -rf /var/lib/apt/lists/*
 
-# Crear script para ejecutar Playit y Minecraft al mismo tiempo
+# Script de inicio para ejecutar Playit y Minecraft
 RUN echo '#!/bin/bash\n\
 if [ -n "$PLAYIT_SECRET_KEY" ]; then\n\
     playit run --secret "$PLAYIT_SECRET_KEY" &\n\
@@ -31,5 +28,5 @@ exec /start\n\
 
 EXPOSE 25565
 
-ENTRYPOINT ["/start-with-play
-it.sh"]
+ENTRYPOINT ["/start-with-playi
+t.sh"]
