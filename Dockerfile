@@ -19,5 +19,4 @@ RUN curl -SsL https://playit-cloud.github.io/ppa/key.gpg | gpg --dearmor | tee /
 EXPOSE 25565
 
 # Comando simplificado en una sola linea
-CMD playit run & /
-start
+CMD playit run & /start
